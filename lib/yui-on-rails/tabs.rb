@@ -28,7 +28,7 @@ module YuiOnRails
       
       private # ---------------------------------------------------------------------------
       def render_tabs
-        content_tag :ul do
+        content_tag :ul, :class=>"yui-nav" do
           @tabs.collect do |tab|
             content_tag(:li,link_to(content_tag(:em, tab[1] ), "##{tab[0]}"))
           end.join
@@ -36,9 +36,11 @@ module YuiOnRails
       end
 
       def render_bodies
-        @tabs.collect do |tab|
-          content_tag(:div,capture(&tab[3]),tab[2].merge(:id => tab[0]))
-        end.join.to_s
+        content_tag :div, :class=>"yui-content" do
+          @tabs.collect do |tab|
+            content_tag(:div,capture(&tab[3]),tab[2].merge(:id => tab[0]))
+          end.join.to_s
+        end
       end
 
       def method_missing( *args, &block )
