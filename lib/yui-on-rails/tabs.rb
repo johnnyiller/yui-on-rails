@@ -23,21 +23,21 @@ module YuiOnRails
       end
       
       def render
-        content_tag(:div,(render_tabs+render_bodies),{:id=>:tabs}.merge(@options))
+        content_tag(:div,(render_tabs+render_bodies),{:id=>:tabs, :class=>"tabber"}.merge(@options))
       end
       
       private # ---------------------------------------------------------------------------
       def render_tabs
         content_tag :ul do
           @tabs.collect do |tab|
-            content_tag( :li, link_to( content_tag( :span, tab[1] ), "##{tab[0]}" ) )
+            content_tag(:li,link_to(content_tag(:em, tab[1] ), "##{tab[0]}"))
           end.join
         end
       end
 
       def render_bodies
         @tabs.collect do |tab|
-          content_tag( :div, capture( &tab[3] ), tab[2].merge( :id => tab[0] ) )
+          content_tag(:div,capture(&tab[3]),tab[2].merge(:id => tab[0]))
         end.join.to_s
       end
 
