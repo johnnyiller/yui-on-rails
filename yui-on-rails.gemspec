@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yui-on-rails}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jeff durand"]
@@ -27,7 +27,8 @@ Gem::Specification.new do |s|
      "lib/yui-on-rails/tabs.rb",
      "rails/init.rb",
      "test/helper.rb",
-     "test/test_yui-on-rails.rb"
+     "test/test_yui-on-rails.rb",
+     "yui-on-rails.gemspec"
   ]
   s.homepage = %q{http://github.com/johnnyiller/yui-on-rails}
   s.rdoc_options = ["--charset=UTF-8"]
