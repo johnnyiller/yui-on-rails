@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yui-on-rails}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jeff durand"]
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/yui-on-rails.rb",
+     "lib/yui-on-rails/prototype_helper.rb",
      "lib/yui-on-rails/tabs.rb",
      "rails/init.rb",
      "test/helper.rb",
