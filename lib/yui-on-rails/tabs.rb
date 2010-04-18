@@ -30,7 +30,7 @@ module YuiOnRails
       def render_tabs
         content_tag :ul, :class=>"yui-nav" do
           @tabs.collect do |tab|
-            content_tag(:li,link_to(content_tag(:em, tab[1],tab[4]), "##{tab[0]}"))
+            content_tag(:li,link_to(content_tag(:em, tab[1]), "##{tab[0]}",tab[4]))
           end.join
         end
       end
