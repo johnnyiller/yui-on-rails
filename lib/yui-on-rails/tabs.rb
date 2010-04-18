@@ -17,9 +17,9 @@ module YuiOnRails
         yield self
       end
       
-      def create(tab_id,tab_text,options={},&block)
+      def create(tab_id,tab_text,li_options={},options={},&block)
         raise "Block needed for TabsRenderer#CREATE" unless block_given?
-        @tabs << [ tab_id, tab_text, options, block ]
+        @tabs << [ tab_id, tab_text, options, block, li_options ]
       end
       
       def render
@@ -30,7 +30,7 @@ module YuiOnRails
       def render_tabs
         content_tag :ul, :class=>"yui-nav" do
           @tabs.collect do |tab|
-            content_tag(:li,link_to(content_tag(:em, tab[1] ), "##{tab[0]}"))
+            content_tag(:li,link_to(content_tag(:em, tab[1],tab[4]), "##{tab[0]}"))
           end.join
         end
       end
