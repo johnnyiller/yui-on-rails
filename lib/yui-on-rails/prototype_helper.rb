@@ -1,13 +1,26 @@
 module ActionView
   module Helpers
     module PrototypeHelper
-    #alias :original_link_to_remote :link_to_remote
-    
       def link_to_remote_with_yui(name, options = {}, html_options = nil)
-        options.merge!(:before=>"alert('blah blah')")
-        link_to_remote_without_yui(name, options, html_options)
+        #myopts = {}
+        [:loading, :loaded, :interactive,:success,:failure,:complete].each do |symb|
+          options.merge!({symb=>"yui_default_#{symb.to_s}()"}) unless options.keys.include?(symb)
+        end
+        #options.merge!({:before=>"default_before()",:complete=>"alert('completed')"})
+        link_to_function(name, remote_function(options), html_options || options.delete(:html))
       end
-      alias_method_chain :link_to_remote, :yui
+      def form_remote_tag(options = {}, &block)
+        [:loading, :loaded, :interactive,:success,:failure,:complete].each do |symb|
+          options.merge!({symb=>"yui_default_#{symb.to_s}()"}) unless options.keys.include?(symb)
+        end
+        options[:form] = true
+        options[:html] ||= {}
+        options[:html][:onsubmit] =
+          (options[:html][:onsubmit] ? options[:html][:onsubmit] + "; " : "") +
+          "#{remote_function(options)}; return false;"
+
+        form_tag(options[:html].delete(:action) || url_for(options[:url]), options[:html], &block)
+      end
     end
   end
 end
