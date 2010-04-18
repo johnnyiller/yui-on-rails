@@ -1,16 +1,16 @@
 module ActionView
   module Helpers
     module PrototypeHelper
-      def link_to_remote_with_yui(name, options = {}, html_options = nil)
+      def link_to_remote(name, options = {}, html_options = nil)
         #myopts = {}
-        [:loading, :loaded, :interactive,:success,:failure,:complete].each do |symb|
+        [:before,:after,:loading, :loaded, :interactive,:success,:failure,:complete].each do |symb|
           options.merge!({symb=>"yui_default_#{symb.to_s}()"}) unless options.keys.include?(symb)
         end
         #options.merge!({:before=>"default_before()",:complete=>"alert('completed')"})
         link_to_function(name, remote_function(options), html_options || options.delete(:html))
       end
       def form_remote_tag(options = {}, &block)
-        [:loading, :loaded, :interactive,:success,:failure,:complete].each do |symb|
+        [:before,:after,:loading, :loaded, :interactive,:success,:failure,:complete].each do |symb|
           options.merge!({symb=>"yui_default_#{symb.to_s}()"}) unless options.keys.include?(symb)
         end
         options[:form] = true
