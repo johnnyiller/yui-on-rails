@@ -18,7 +18,7 @@ module YuiOnRails
       end
       
       def create(button_text,options={})
-        raise "You must provide a button name dummy.#CREATE" if button_name.blank?
+        raise "You must provide a button name dummy.#CREATE" if button_text.blank?
         @radio_buttons << [button_text, options]
       end
       
