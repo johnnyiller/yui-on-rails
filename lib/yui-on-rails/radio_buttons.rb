@@ -29,7 +29,7 @@ module YuiOnRails
       def render_bodies
         #content_tag :div, :class=>"yui-content" do
           @radio_buttons.collect do |radio_button|
-            radio_button_tag(radio_buttons[0], radio_buttons[1], false, radio_buttons[2])
+            radio_button_tag(radio_button[0], radio_button[1], false, radio_button[2])
           end.join.to_s
         #end
       end
