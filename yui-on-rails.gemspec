@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yui-on-rails}
-  s.version = "0.1.11"
+  s.version = "0.1.12"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jeff durand"]
-  s.date = %q{2010-04-18}
+  s.date = %q{2010-04-28}
   s.description = %q{Quite a few helpers for yui.}
   s.email = %q{jeff.durand@gmail.com}
   s.extra_rdoc_files = [
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
      "generators/yui_on_rails_generator.rb",
      "lib/yui-on-rails.rb",
      "lib/yui-on-rails/prototype_helper.rb",
+     "lib/yui-on-rails/radio_buttons.rb",
      "lib/yui-on-rails/tabs.rb",
      "rails/init.rb",
      "test/helper.rb",
