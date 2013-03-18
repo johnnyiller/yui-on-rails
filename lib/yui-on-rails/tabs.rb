@@ -31,7 +31,7 @@ module YuiOnRails
         content_tag :ul, :class=>"yui-nav" do
           @tabs.collect do |tab|
             content_tag(:li,link_to(content_tag(:em, tab[1]), "##{tab[0]}"),tab[4])
-          end.join
+          end.reduce(&:+)
         end
       end
 
@@ -39,7 +39,7 @@ module YuiOnRails
         content_tag :div, :class=>"yui-content" do
           @tabs.collect do |tab|
             content_tag(:div,capture(&tab[3]),tab[2].merge(:id => tab[0]))
-          end.join.to_s
+          end.reduce(&:+)
         end
       end
 

@@ -31,7 +31,7 @@ module YuiOnRails
         #content_tag :div, :class=>"yui-content" do
           @radio_buttons.collect do |radio_button|
             radio_button_tag(@name, radio_button[0], false, radio_button[1])
-          end.join.to_s
+          end.reduce(&:+)
         #end
       end
       def method_missing( *args, &block )
